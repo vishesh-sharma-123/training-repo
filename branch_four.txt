@@ -1,0 +1,4 @@
+this is a sample text file
+Which would be later used to 
+Try merge and etc later on.
+Line number 4
