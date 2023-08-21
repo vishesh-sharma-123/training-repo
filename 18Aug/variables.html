@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        for(let i=0;i<10;i++){
+            setTimeout(function(){
+                console.log(" task " , i);
+            }, 100*i);
+        }
+    </script> -->
+    <!-- <script>
+      // named function
+      // default arguments
+      function test(a, b = 0) {
+        console.log("test function", a, b);
+        // returns undefined by default
+      }
+      const result1 = test();
+      test(1, 2);
+      test(3);
+
+      console.log("not returning", result1);
+      // unnamed function
+      // expression functions
+      // variable = expression
+      const demo = function () {
+        console.log("anonymous function");
+        return 10;
+      };
+      const result2 = demo();
+      console.log("returning a value", result2);
+    </script> -->
+
+    <!-- <script>
+      // to access the current object instance : this
+      const user = {
+        name: "john",
+        age: 12,
+        greeting: function () {
+          setTimeout(function () {
+            console.log("hello from", this.name);
+          }, 1000);
+        },
+      };
+      user.greeting();
+      user.name = "demo";
+      user.greeting();
+    </script> -->
+    <!-- <script>
+      class Demo {
+        demoData;
+        constructor() {
+          console.log("constructor called");
+        }
+        func1() {
+          this.demoData = "hello";
+          console.log("function 1");
+        }
+        func2() {
+          this.func1();
+          console.log("function 2");
+        }
+      }
+      const d = new Demo();
+      d.func2();
+      console.log(d.demoData);
+    </script> -->
+<!-- 
+    <script>
+      function user(firstname, lastname) {
+        return {
+          // property:value
+          firstname, // object literal
+          lastname, // property short-hand
+          fullname: firstname + " " + lastname,
+        };
+      }
+      // destructuring syntax
+      // const person = user("John", "Doe");
+      // const fullname = person.fullname;
+      // const name = person.fullname;
+      // {property:alias_name}
+      const { fullname: name, firstname, age } = user("John", "Doe");
+      // a variable will be declared assigning the value matching the property
+      // if the property does not exist, the variable will be still be defined but its value will be undefined
+      // in case of aliasing the property will not be defined as a variable instead the alias will be the variable here
+      console.log(name, firstname, age);
+    </script> -->
+
+    <!-- <script>
+      // spread operator : ...
+      // used to make immutable objects, arrays
+      const product = { id: 100, name: "test", price: 1200 };
+      const cart = [];
+      // cart.push(product); // copies the reference of product
+      // cart.push(Object.assign({},product)); // ES5
+      cart.push({ ...product }); // ES6 : creating a new reference (immutable)
+      console.log(product);
+      console.log(cart);
+      cart[0].qty = 1;
+      console.log(product);
+      console.log(cart);
+    </script> -->
+    <script>
+      const no = 10;
+      console.log(no.toFixed(2));
+      const str = "test";
+      // includes, startsWith, endsWith, length, toUpperCase, toLowerCase
+      const dt = new Date();
+      // Math object
+      const arr = [];
+      // filter, find, indexOf, length, map, forEach, push, pop, sort, reverse, shift, unshift, includes, slice, splice
+    </script>
+</body>
+</html>
