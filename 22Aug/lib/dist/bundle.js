@@ -1,0 +1,1 @@
+(()=>{"use strict";(function(o,s){console.log("div",o/s)})(5,4),console.log("sum",10)})();
