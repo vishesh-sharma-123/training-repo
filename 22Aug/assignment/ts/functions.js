@@ -72,14 +72,14 @@ function displayData(data) {
     if (!weatherDisplay)
         return;
     if (data) {
-        console.log('data', data);
+        // console.log('data',data)
         var place = data.location.name;
         var currentTemp = data.current.temp_c;
         var minTemp = data.forecast.forecastday[0].day.maxtemp_c;
         var maxTemp = data.forecast.forecastday[0].day.mintemp_c;
         var humidity = data.current.humidity;
         var status_1 = data.current.condition.text;
-        weatherDisplay.innerHTML = "\n        <p>Current Temperature: ".concat(currentTemp, "\u00B0C</p>\n        <p>Humidity: ").concat(humidity, "%</p>\n        <p>Weather: ").concat(status_1, "</p>\n        <p>Place: ").concat(place, "</p>\n        <p>Max Temp: ").concat(maxTemp, " </p>\n        <p>Min Temp: ").concat(minTemp, " </p>\n      ");
+        weatherDisplay.innerHTML = "\n        <p>Current Temperature: ".concat(currentTemp, "\u00B0C</p>\n        <p>Humidity: ").concat(humidity, "%</p>\n        <p>Weather: ").concat(status_1, "</p>\n        <p>Place: ").concat(place, "</p>\n        <p>Max Temp: ").concat(maxTemp, "\u00B0C </p>\n        <p>Min Temp: ").concat(minTemp, "\u00B0C </p>\n      ");
     }
     else {
         weatherDisplay.innerHTML = '<p>Error fetching weather data.</p>';

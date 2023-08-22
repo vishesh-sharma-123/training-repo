@@ -42,8 +42,8 @@ export async function fetchWeather(city: string ) {
         <p>Humidity: ${humidity}%</p>
         <p>Weather: ${status}</p>
         <p>Place: ${place}</p>
-        <p>Max Temp: ${maxTemp} </p>
-        <p>Min Temp: ${minTemp} </p>
+        <p>Max Temp: ${maxTemp}°C </p>
+        <p>Min Temp: ${minTemp}°C </p>
       `;
     } else {
       weatherDisplay.innerHTML = '<p>Error fetching weather data.</p>';
