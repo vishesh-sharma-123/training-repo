@@ -1,4 +1,4 @@
-// import { weatherData } from "./json_tsConvertor";
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,6 +35,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fetchWeather = void 0;
 function fetchWeather(city) {
     return __awaiter(this, void 0, void 0, function () {
         var apiKey, apiUrl, response, data, error_1;
@@ -42,7 +44,7 @@ function fetchWeather(city) {
             switch (_a.label) {
                 case 0:
                     apiKey = 'e23bdf99bbaf4ffca37102138232208';
-                    apiUrl = "http://api.weatherapi.com/v1/current.json?key=".concat(apiKey, "&q=").concat(city, "&aqi=no");
+                    apiUrl = "http://api.weatherapi.com/v1/forecast.json?key=".concat(apiKey, "&q=").concat(city, "&days=5&aqi=no&alerts=no");
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 4, , 5]);
@@ -53,6 +55,7 @@ function fetchWeather(city) {
                 case 3:
                     data = _a.sent();
                     console.log(data);
+                    displayData(data);
                     return [2 /*return*/, data];
                 case 4:
                     error_1 = _a.sent();
@@ -63,21 +66,22 @@ function fetchWeather(city) {
         });
     });
 }
-//   function updateWeatherDisplay(data: weatherData | null) {
-//     const weatherDisplay = document.getElementById('weatherDisplay');
-//     if (!weatherDisplay) return;
-//     if (data) {
-//       const currentTemp = data.current.temp_c;
-//       const humidity = data.current.humidity;
-//       const minTemp = data.forecast.forecastday[0].day.mintemp_c;
-//       const maxTemp = data.forecast.forecastday[0].day.maxtemp_c;
-//       weatherDisplay.innerHTML = `
-//         <p>Current Temperature: ${currentTemp}°C</p>
-//         <p>Humidity: ${humidity}%</p>
-//         <p>Min Temperature: ${minTemp}°C</p>
-//         <p>Max Temperature: ${maxTemp}°C</p>
-//       `;
-//     } else {
-//       weatherDisplay.innerHTML = '<p>Error fetching weather data.</p>';
-//     }
-//   }
+exports.fetchWeather = fetchWeather;
+function displayData(data) {
+    var weatherDisplay = document.getElementById('weatherDisplay');
+    if (!weatherDisplay)
+        return;
+    if (data) {
+        console.log('data', data);
+        var place = data.location.name;
+        var currentTemp = data.current.temp_c;
+        var minTemp = data.forecast.forecastday[0].day.maxtemp_c;
+        var maxTemp = data.forecast.forecastday[0].day.mintemp_c;
+        var humidity = data.current.humidity;
+        var status_1 = data.current.condition.text;
+        weatherDisplay.innerHTML = "\n        <p>Current Temperature: ".concat(currentTemp, "\u00B0C</p>\n        <p>Humidity: ").concat(humidity, "%</p>\n        <p>Weather: ").concat(status_1, "</p>\n        <p>Place: ").concat(place, "</p>\n        <p>Max Temp: ").concat(maxTemp, " </p>\n        <p>Min Temp: ").concat(minTemp, " </p>\n      ");
+    }
+    else {
+        weatherDisplay.innerHTML = '<p>Error fetching weather data.</p>';
+    }
+}

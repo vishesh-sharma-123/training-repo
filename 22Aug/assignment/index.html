@@ -10,11 +10,23 @@
     <div>
       <label for="cityInput">Enter City: </label>
       <input type="text" id="cityInput" placeholder="Enter Location">
-      <button id="fetchButton">Weather Forecast</button>
+      <button id="fetchButton" onclick="handleFetchWeather()">Weather Forecast</button>
     </div>
     <div id="weatherDisplay">
 
     </div>
-    <script src="./ts/functions.js"></script>
+    <script src="./ts/functions.js">
+
+    </script>
+    <script>
+         async function handleFetchWeather() {
+        const cityInput = document.getElementById('cityInput').value;
+        try {
+        await fetchWeather(cityInput);
+        } catch (error) {
+        console.error('Error fetching weather data:', error);
+        }
+  }
+    </script>
 </body>
 </html>
