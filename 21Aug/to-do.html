@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To-do List</h1>
+    <!-- <button onClick="createNewToDo()">Create new</button> -->
+    <form >
+        <input id="task_input_field" placeholder="Add new task here." type="text">
+        <button onClick="AddToList()">Add</button>
+    </form>
+    <ul id="ListElements">
+       
+    </ul>
+    
+    <script>
+        const arr=[];
+
+        function showUpdatedList(){
+            let toDisplay = document.getElementById("ListElements");
+            let item = document.createElement("ul");
+                toDisplay.innerHTML = ''
+            let l= arr.length;
+             for(let i=0;i<l;i++){
+                // toDisplay.innerHTML+='<li>'+arr[i]+' <button id='+ toString(i) + ' onClick="taskDone(${i})">Done</button></li>'
+                //asd
+            
+                toDisplay.innerHTML+= `<li>${arr[i]}<button onClick="taskDone(${i})">Done</button></li>`;
+             }
+            
+
+        }
+
+        function AddToList(){
+            event.preventDefault();
+            let task = document.getElementById("task_input_field").value;
+            console.log(task);
+            arr.push(task);
+            showUpdatedList();
+        }
+
+        function taskDone( a ){
+            event.preventDefault();
+            arr.splice(a, 1); 
+            showUpdatedList();
+        }
+    </script>
+</body>
+</html>
