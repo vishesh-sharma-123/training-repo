@@ -7,6 +7,7 @@ import { ProductType } from 'src/types';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
+  code = 'USD'
  @Input({required: true}) data!: ProductType;
  @Output() btnClick = new EventEmitter();
  notifyParent(){
