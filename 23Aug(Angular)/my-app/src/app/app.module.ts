@@ -7,6 +7,9 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './containers/product-list/product-list.component';
 import { DiscountPipe } from './pipes/discount.pipe';
 import { ConversionPipe } from './pipes/conversion.pipe';
+import { ProductPriceComponent } from './components/product-price/product-price.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './containers/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +18,13 @@ import { ConversionPipe } from './pipes/conversion.pipe';
     ProductComponent,
     ProductListComponent,
     DiscountPipe,
-    ConversionPipe
+    ConversionPipe,
+    ProductPriceComponent,
+    CheckoutComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

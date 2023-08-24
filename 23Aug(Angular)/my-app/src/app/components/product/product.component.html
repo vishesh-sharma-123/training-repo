@@ -1,6 +1,11 @@
 <div>
     <img style="max-height: 200px; margin-top: 4%;" [src]="data.productImage"/>
     <h4>{{data.productName | uppercase}}</h4>
+    <app-product-price
+     [price]="data.productPrice"
+     [sellingPrice]="data.productSalePrice"
+     [code]="code"
+    ></app-product-price>
     <h5>{{data.productPrice | currency: "INR": "code": "2.1-1" }}</h5>
     <h5>{{data.productPrice | conversion: code | currency: code}}</h5>
     <button (click)="notifyParent()" *ngIf="data.productStock > 1; else stock">Add to cart</button>
