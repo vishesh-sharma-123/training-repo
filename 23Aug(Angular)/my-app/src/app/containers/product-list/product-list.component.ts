@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductType } from 'src/types';
 
 @Component({
@@ -7,6 +7,7 @@ import { ProductType } from 'src/types';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+  @Input() currency!: string;
   plist: ProductType[] = [{
     productId: 12,
     productName: 'Groot',

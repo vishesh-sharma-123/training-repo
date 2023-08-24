@@ -10,6 +10,8 @@ import { ConversionPipe } from './pipes/conversion.pipe';
 import { ProductPriceComponent } from './components/product-price/product-price.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CheckoutComponent } from './containers/checkout/checkout.component';
+import {errorTailorImports, provideErrorTailorConfig} from '@ngneat/error-tailor';
+import { CurrencyComponent } from './components/currency/currency.component'
 
 @NgModule({
   declarations: [
@@ -20,13 +22,27 @@ import { CheckoutComponent } from './containers/checkout/checkout.component';
     DiscountPipe,
     ConversionPipe,
     ProductPriceComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    errorTailorImports
   ],
-  providers: [],
+  providers: [
+    provideErrorTailorConfig({
+      errors: {
+        useValue: {
+          required: 'This field is required',
+          minlength: ({ requiredLength, actualLength }) =>
+            `Expect ${requiredLength} but got ${actualLength}`,
+          zipcode: ({ enteredCode, validCode }) =>
+            `Valid pincode is ${validCode}`,
+        },
+      },
+    }),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

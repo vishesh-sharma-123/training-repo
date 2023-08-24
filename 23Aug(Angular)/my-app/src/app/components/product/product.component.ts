@@ -7,9 +7,11 @@ import { ProductType } from 'src/types';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-  code = 'USD'
+  // code = 'USD'
  @Input({required: true}) data!: ProductType;
  @Output() btnClick = new EventEmitter();
+ @Input({required: false}) code!: string;
+
  notifyParent(){
   this.btnClick.emit({
     id: this.data.productId,

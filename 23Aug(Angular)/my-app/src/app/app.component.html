@@ -1,4 +1,6 @@
 <!-- <p>Helol world</p> -->
 <!-- <app-demo></app-demo> -->
-<!-- <app-product-list></app-product-list> -->
-<app-checkout></app-checkout>
+<app-currency (currencySelected)="getCurrency($event)"></app-currency>
+<app-product-list [currency]="Appcurrency" ></app-product-list>
+<!-- <app-checkout></app-checkout> -->
+

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+  Appcurrency!: string;
+
+ 
+getCurrency(data: string){
+ console.log('currency selected in app-product-list',data);
+  this.Appcurrency= data;
+  
 }
+}
+
