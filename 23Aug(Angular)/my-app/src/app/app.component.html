@@ -1,7 +1,10 @@
 <!-- <p>Helol world</p> -->
 <!-- <app-demo></app-demo> -->
 <input type="text" appNumbersOnly/>
+<input type="text" appNumbersOnly="4"/>
+<!-- <input type="text" [appNumbersOnly]="count"/> -->
+<app-checkout></app-checkout>
 <app-currency (currencySelected)="getCurrency($event)"></app-currency>
 <app-product-list [currency]="Appcurrency" ></app-product-list>
-<!-- <app-checkout></app-checkout> -->
+
 

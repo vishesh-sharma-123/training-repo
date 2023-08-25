@@ -12,8 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CheckoutComponent } from './containers/checkout/checkout.component';
 import {errorTailorImports, provideErrorTailorConfig} from '@ngneat/error-tailor';
 import { CurrencyComponent } from './components/currency/currency.component';
-import { NumbersOnlyDirective } from './directives/numbers-only.directive'
-
+import { NumbersOnlyDirective } from './directives/numbers-only.directive';
+import { ImgFallbackDirective } from './directives/img-fallback.directive'
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,12 +26,15 @@ import { NumbersOnlyDirective } from './directives/numbers-only.directive'
     ProductPriceComponent,
     CheckoutComponent,
     CurrencyComponent,
-    NumbersOnlyDirective
+    NumbersOnlyDirective,
+    ImgFallbackDirective,
+    
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    errorTailorImports
+    errorTailorImports,
+    HttpClientModule,
   ],
   providers: [
     provideErrorTailorConfig({

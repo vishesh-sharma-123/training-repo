@@ -1,5 +1,5 @@
 <div>
-    <img style="max-height: 200px; margin-top: 4%;" [src]="data.productImage"/>
+    <img style="max-height: 200px; margin-top: 4%;" appImgFallback [src]="data.productImage"/>
     <h4>{{data.productName | uppercase}}</h4>
     <app-product-price
      [price]="data.productPrice"

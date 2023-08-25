@@ -1,34 +1,48 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 import { ProductType } from 'src/types';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  providers: [ProductService]
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnChanges, OnInit{
   @Input() currency!: string;
-  plist: ProductType[] = [{
-    productId: 12,
-    productName: 'Groot',
-    productImage: 'https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/11/1489667130-baby-groot-switches-guardians-of-the-galaxy-vol-2.jpg?crop=1xw:0.9907952871870398xh;center,top&resize=1200:*',
-    productPrice: 300.255,
-    productStock: 121,
-    productSalePrice: 112
-  },
-  {
-    productId: 2,
-    productName: 'Rocket Racoon',
-    productImage: 'https://wallpapers.com/images/hd/funny-marvel-pictures-w535ke8c04clwsz9.jpg',
-    productPrice: 500.345,
-    productStock: 0,
-    productSalePrice: 250
-  }
-]
+  plist: ProductType[] = [];
 
+  constructor(private productService: ProductService ){  }
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
+
+  getData(){
+    this.productService.getProducts().subscribe(
+      (data)=>{
+        console.log('success', data)
+        this.plist=data;
+      },
+      (err) =>{
+        console.log('error', err)
+      }
+    )
+  }
+
+  updatePrice(){
+    const product= this.plist[0];
+    product.productSalePrice = 950;
+    this.plist= [{...product}, this.plist[1]]
+  }
 
 addItem(data:any){
   console.log('added', data);
+  
 }
+
 
 }

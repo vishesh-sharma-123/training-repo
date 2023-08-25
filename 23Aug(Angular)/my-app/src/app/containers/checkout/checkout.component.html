@@ -13,13 +13,20 @@
     </div> -->
     <label for>Email</label>
     <input type="text" formControlName="email"/>
-    <div formGroupName="address">
-        <label>Address</label>
+    <div formArrayName="address">
+        <!-- <label>Address</label> -->
+        <button type="button" (click)="addAddress()">Add</button>
+        <div 
+            [formGroupName]="i"
+            *ngFor="let ctrl of addressObj.controls; let i = index">
         <input type="text" formControlName="city"/>
         <input type="text" formControlName="pincode"/>
+        <button type="button" (click)="removeAddress(i)">Submit</button>
         <!-- <small *ngIf="checkoutForm.get('address')?.get('pincode')?.hasError('zipcode')">Invalid pincode</small> -->
     </div>
+    </div>
     <button type="submit">Submit</button>
+    
 </form>
 
 <pre>
