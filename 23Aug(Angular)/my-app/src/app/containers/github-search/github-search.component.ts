@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
 import { SearchService } from 'src/app/services/search.service';
 
 @Component({
@@ -8,7 +10,24 @@ import { SearchService } from 'src/app/services/search.service';
   providers: [SearchService]
 })
 export class GithubSearchComponent {
+  search= new FormControl();
   constructor(private searchService: SearchService){}
+
+  ngOnInit(): (void){
+    this
+    .search
+    .valueChanges
+    .pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      switchMap((val)=>this.searchService.searchRepos(val)),
+      map((data:any)=> data.items)
+      )
+    .subscribe((value)=>{
+      console.log(value);
+      // this.getRepos(value);
+    })
+  }
 
   getRepos(query: string){
     this.searchService.searchRepos(query).subscribe(

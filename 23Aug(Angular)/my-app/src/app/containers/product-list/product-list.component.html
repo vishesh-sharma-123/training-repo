@@ -1,4 +1,6 @@
 <!-- <p>product-list works!</p> -->
-<div *ngFor="let item of plist">
-<app-product [code]="currency" [data]="item" (btnClick)="addItem($event)" ></app-product>
+<div class="row" *ngIf="curr$ | async as mycode">
+<div *ngFor="let item of product$ | async ">
+<app-product [code]="mycode" [data]="item" (btnClick)="addItem($event)" ></app-product>
+</div>
 </div>

@@ -1,6 +1,9 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DestroyRef, Input, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { CurrencyService } from 'src/app/services/currency.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductType } from 'src/types';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 
 @Component({
   selector: 'app-product-list',
@@ -8,30 +11,48 @@ import { ProductType } from 'src/types';
   styleUrls: ['./product-list.component.css'],
   providers: [ProductService]
 })
-export class ProductListComponent implements OnChanges, OnInit{
-  @Input() currency!: string;
+export class ProductListComponent {
+  currency!: string;
   plist: ProductType[] = [];
+  currency$!: Subscription;
+  destroyRef = inject(DestroyRef);
+  curr$: Observable<string>;
+  product$: Observable<ProductType[]>
+  
 
-  constructor(private productService: ProductService ){  }
+  constructor(
+    private productService: ProductService, 
+    private currencyService: CurrencyService ){ 
+      this.curr$= this.currencyService.currencyObservable;
+      this.product$ = this.productService.getProducts();
+     }
+
   ngOnInit(): void {
-    this.getData();
+    // this.getData();
+    
+    this.currencyService.currencyObservable
+    .pipe(takeUntilDestroyed(this.destroyRef))
+    .subscribe((code)=>(this.currency= code))
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
+  ngOnDestroy():void{
 
-  getData(){
-    this.productService.getProducts().subscribe(
-      (data)=>{
-        console.log('success', data)
-        this.plist=data;
-      },
-      (err) =>{
-        console.log('error', err)
-      }
-    )
   }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log(changes);
+  // }
+
+  // getData(){
+  //   this.productService.getProducts().subscribe(
+  //     (data)=>{
+  //       console.log('success', data)
+  //       this.plist=data;
+  //     },
+  //     (err) =>{
+  //       console.log('error', err)
+  //     }
+  //   )
+  // }
 
   updatePrice(){
     const product= this.plist[0];

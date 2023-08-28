@@ -1,10 +1,18 @@
 <!-- <p>Helol world</p> -->
 <!-- <app-demo></app-demo> -->
-<input type="text" appNumbersOnly/>
-<input type="text" appNumbersOnly="4"/>
+<!-- <input type="text" appNumbersOnly/>
+<input type="text" appNumbersOnly="4"/> -->
 <!-- <input type="text" [appNumbersOnly]="count"/> -->
-<app-checkout></app-checkout>
-<app-currency (currencySelected)="getCurrency($event)"></app-currency>
-<app-product-list [currency]="Appcurrency" ></app-product-list>
+<!-- <app-checkout></app-checkout> -->
 
-
+<ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/products">Products</a></li>
+    <li><a routerLink="/checkout">Checkout</a></li>
+</ul>
+<div class="container-fluid bg-light">
+    <app-currency ></app-currency>
+    <router-outlet></router-outlet>
+</div>
+<!-- <app-product-list [currency]="Appcurrency" ></app-product-list> -->
+<!-- <app-github-search></app-github-search> -->

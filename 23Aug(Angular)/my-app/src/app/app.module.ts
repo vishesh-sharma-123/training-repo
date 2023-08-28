@@ -16,6 +16,8 @@ import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { ImgFallbackDirective } from './directives/img-fallback.directive'
 import {HttpClientModule} from '@angular/common/http';
 import { GithubSearchComponent } from './containers/github-search/github-search.component'
+import { AppRoutingModule } from './app-routing.module';
+import { ErrorPageComponent } from './containers/error-page/error-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { GithubSearchComponent } from './containers/github-search/github-search.
     NumbersOnlyDirective,
     ImgFallbackDirective,
     GithubSearchComponent,
+    ErrorPageComponent,
     
   ],
   imports: [
@@ -37,6 +40,7 @@ import { GithubSearchComponent } from './containers/github-search/github-search.
     ReactiveFormsModule,
     errorTailorImports,
     HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     provideErrorTailorConfig({
