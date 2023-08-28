@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,25 @@ export class CurrencyService {
 
   currencyObservable: Observable<string> = this.currencySubject.asObservable();
 
-  constructor() {this.rehydrate() }
+  constructor(private http: HttpClient) {this.rehydrate() }
+
+  checkNgetData(){
+
+  }
+
+  getValueByCode(code: string){
+
+  }
+
+  getForexData(){
+    const url = 'https://api.forexrateapi.com/v1/latest?api_key=bb1cd953e7134234c80865b104758a51&base=INR';
+    return this.http.get(url).pipe(
+      map((data:any)=> {
+        console.log('url hit...data : ',data);
+        return {data: data.rates, code: Object.keys(data.rate)}
+      })
+    )
+  }
 
   rehydrate(){
     if(localStorage.getItem('currency')){
