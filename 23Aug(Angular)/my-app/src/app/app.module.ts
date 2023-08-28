@@ -14,7 +14,8 @@ import {errorTailorImports, provideErrorTailorConfig} from '@ngneat/error-tailor
 import { CurrencyComponent } from './components/currency/currency.component';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { ImgFallbackDirective } from './directives/img-fallback.directive'
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { GithubSearchComponent } from './containers/github-search/github-search.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import {HttpClientModule} from '@angular/common/http'
     CurrencyComponent,
     NumbersOnlyDirective,
     ImgFallbackDirective,
+    GithubSearchComponent,
     
   ],
   imports: [
