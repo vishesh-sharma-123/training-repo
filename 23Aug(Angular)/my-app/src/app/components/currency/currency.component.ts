@@ -15,11 +15,12 @@ export class CurrencyComponent {
 
   ngOnInit(): void {
     // this.getData();
-    if(localStorage.getItem('forexRates') === null){
-   this.getForexData();}
-   else{
+  //   if(localStorage.getItem('forexRates') === null){
+  //  this.getForexData();}
+  //  else{
     
-   }
+  //  }
+  this.getForexData();
   }
 
   getForexData(){
