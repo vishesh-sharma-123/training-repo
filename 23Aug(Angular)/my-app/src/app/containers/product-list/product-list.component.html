@@ -1,6 +1,6 @@
 <!-- <p>product-list works!</p> -->
-<div class="row" *ngIf="curr$ | async as mycode">
-<div *ngFor="let item of product$ | async ">
+<div  style="display: flex; flex-wrap: wrap;" class="row" *ngIf="curr$ | async as mycode">
+<div style="width: 25%; display: flex;justify-content: center;" *ngFor="let item of product$ | async ">
 <app-product [code]="mycode" [data]="item" (btnClick)="addItem($event)" ></app-product>
 </div>
 </div>

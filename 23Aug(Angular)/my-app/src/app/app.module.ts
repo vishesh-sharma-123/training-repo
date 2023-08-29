@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { GithubSearchComponent } from './containers/github-search/github-search.component'
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorPageComponent } from './containers/error-page/error-page.component';
+import { ProductDetailComponent } from './containers/product-detail/product-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { ErrorPageComponent } from './containers/error-page/error-page.component
     ImgFallbackDirective,
     GithubSearchComponent,
     ErrorPageComponent,
+    ProductDetailComponent,
     
   ],
   imports: [

@@ -5,12 +5,13 @@
 <!-- <input type="text" [appNumbersOnly]="count"/> -->
 <!-- <app-checkout></app-checkout> -->
 
-<ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/products">Products</a></li>
-    <li><a routerLink="/checkout">Checkout</a></li>
+<ul style="display: flex; gap: 2%;">
+    <li style="list-style-type: none;"><a style="text-decoration: none; font-size: large; font-weight: bold; " routerLink="/">Home</a></li>
+    <li style="list-style-type: none;"><a style="text-decoration: none; font-size: large; font-weight: bold; " routerLink="/products">Products</a></li>
+    <li style="list-style-type: none;"><a style="text-decoration: none; font-size: large; font-weight: bold; " routerLink="/checkout">Checkout</a></li>
+    <li style="list-style-type: none;"><a style="text-decoration: none; font-size: large; font-weight: bold; " routerLink="/github">Github Search</a></li>
 </ul>
-<div class="container-fluid bg-light">
+<div>
     <app-currency ></app-currency>
     <router-outlet></router-outlet>
 </div>
