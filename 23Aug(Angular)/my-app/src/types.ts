@@ -7,3 +7,14 @@ export type ProductType = {
     productSalePrice: number;
     productStock: number;
   };
+
+  export type UserType = {
+    kind:         string;
+    localId:      string;
+    email:        string;
+    displayName:  string;
+    idToken:      string;
+    registered:   boolean;
+    refreshToken: string;
+    expiresIn:    string;
+}

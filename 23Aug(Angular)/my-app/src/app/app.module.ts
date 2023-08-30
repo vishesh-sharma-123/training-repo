@@ -14,11 +14,15 @@ import {errorTailorImports, provideErrorTailorConfig} from '@ngneat/error-tailor
 import { CurrencyComponent } from './components/currency/currency.component';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { ImgFallbackDirective } from './directives/img-fallback.directive'
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { GithubSearchComponent } from './containers/github-search/github-search.component'
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorPageComponent } from './containers/error-page/error-page.component';
 import { ProductDetailComponent } from './containers/product-detail/product-detail.component';
+import { LoginButtonsComponent } from './components/login-buttons/login-buttons.component';
+import { HttpLoaderInterceptor } from './services/http-loader.interceptor';
+import { UiModule } from './ui/ui.module';
+import { LoaderModule } from './loader/loader.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +39,7 @@ import { ProductDetailComponent } from './containers/product-detail/product-deta
     GithubSearchComponent,
     ErrorPageComponent,
     ProductDetailComponent,
+    LoginButtonsComponent,
     
   ],
   imports: [
@@ -42,9 +47,17 @@ import { ProductDetailComponent } from './containers/product-detail/product-deta
     ReactiveFormsModule,
     errorTailorImports,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UiModule,
+    LoaderModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpLoaderInterceptor,
+      multi: true
+    }
+    ,
     provideErrorTailorConfig({
       errors: {
         useValue: {
