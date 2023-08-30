@@ -21,6 +21,7 @@ export class CurrencyService {
 
   }
 
+  
   getForexData(){
     const url = 'https://api.forexrateapi.com/v1/latest?api_key=bb1cd953e7134234c80865b104758a51&base=INR';
     return this.http.get(url).pipe(
