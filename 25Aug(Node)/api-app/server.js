@@ -1,11 +1,21 @@
+require("dotenv").config();
+const yargs = require('yargs/yargs');
+const {hideBin} = require('yargs/helpers');
+const argv = yargs(hideBin(process.argv)).argv;
 const express = require('express')
 const app = express();
-const PORT_NUMBER = 3000;
+const PORT_NUMBER = argv.port || 3000;
 const testRouter= require('./routes/test');
 const helmet = require('helmet')
+const morgan = require("morgan");
 
-app.use(helmet);
 
+console.log(process.argv, argv)
+console.log(process.env.DB_USEER, process.env.DB_PASSWORD)
+
+
+app.use(helmet());
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/test', testRouter);
