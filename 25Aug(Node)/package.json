@@ -1,0 +1,17 @@
+{
+  "name": "25aug(node)",
+  "version": "1.0.0",
+  "description": "",
+  "main": "basics.js",
+  "scripts": {
+    "start": "node basics.js",
+    "start:dev": "nodemon basics.js",
+    "start:debug": "node --inspect-brk basics.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
