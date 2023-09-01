@@ -11,7 +11,9 @@ const helmet = require('helmet')
 const morgan = require("morgan");
 const db= require('./db')
 const {rateLimit} = require('express-rate-limit')
-
+const authMiddleware = require("./middleware/auth")
+const userRouter = require('./routes/user');
+const { middleware } = require("yargs");
 
 
 console.log(process.argv, argv)
@@ -25,13 +27,14 @@ const limiter = rateLimit({
 })
 
 app.use(helmet());
+app.use(authMiddleware)
 app.use(morgan("dev"));
 app.use(limiter)
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/test', testRouter);
 app.use('/product', productRouter);
-
+app.use("/auth", userRouter);
 app.listen(PORT_NUMBER, (err)=>{
     console.log("Attempting to start server...");
     if(err){
