@@ -1,0 +1,19 @@
+<div class="list_body">
+<div *ngFor="let data of item" >
+    <!-- hello
+    {{data.product.productName}} -->
+    <div class="item_container">
+       
+        <img class="cart_image" [src]="data.product.productImage" />
+        <h2 class="cart_heading">{{data.product.productName}}</h2>
+        <div class="cart_details">
+            <span >Qty : </span>
+            <input type="number" style="max-width:30px;" [defaultValue]="data.count" (input)="updateCartItems(data)"/>
+            <button class="cart_btn" (click)="removeItem(data)">Remove</button>
+        </div>
+      
+
+    </div>
+
+</div>
+</div>

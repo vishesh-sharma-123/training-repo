@@ -1,0 +1,59 @@
+.pagination_container{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-block: 25px;
+}
+
+.paginationBtn{
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.paginationBtn:hover{
+    
+    background-color: black;
+    color: white;
+}
+
+
+.features_container{
+    display: flex;
+    gap: 10px;
+    padding-block: 25px;
+    padding-inline: 20px;
+}
+
+.search_bar{
+    margin-left: auto;
+    width: 300px;
+    height: 20px;
+    border: 3px solid rgb(201, 199, 199);
+    border-radius: 5px;
+}
+
+.sort_container{
+    display: flex;
+    gap: 10px;
+    
+}
+
+.sort_btn{
+    padding-inline: 10px;
+    padding-block: 3px;
+    border:2px solid grey;
+   
+    border-radius: 15px;
+}
+
+.sort_btn:hover{
+    background-color: rgb(111, 109, 109);
+    color: white;
+   
+}

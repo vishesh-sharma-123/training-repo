@@ -1,0 +1,31 @@
+<!-- <p>product-list works!</p> -->
+<!-- <div  style="display: flex; flex-wrap: wrap;" class="row" *ngIf="curr$ | async as mycode">
+<div style="width: 25%; display: flex;justify-content: center;" *ngFor="let item of product$ | async ">
+<app-product [code]="mycode" [data]="item" (btnClick)="addItem($event)" ></app-product>
+</div>
+</div> -->
+<div style="background-color: #d7dcdf">
+<div class="features_container">
+
+
+<div class="sort_container">
+    <span style="margin-top: 4px;">Sort by : </span>
+    <button class="sort_btn" (click)="sortByNameAsc()">Name</button>
+    <button class="sort_btn" (click)="sortByPriceAsc()">Price</button>
+    <button class="sort_btn" (click)="RemoveSort()">Remove Sort</button>
+  </div>
+  <input type="text" class="search_bar" [(ngModel)]="searchQuery" placeholder="Search products here" (input)="updateUrlAndSearch()">
+</div>
+<div style="display: flex; flex-wrap: wrap;" class="row" *ngIf="curr$ | async as mycode">
+  <div style="width: 25%; display: flex; justify-content: center;" *ngFor="let item of filteredProducts">
+    <app-product style="background-color: white; margin-block: 8px; padding-block: 10px; padding-inline: 12px;" [code]="mycode" [data]="item" (btnClick)="addItem($event)"></app-product>
+  </div>
+</div>
+<div class="pagination_container">
+  <div class="btn_container" *ngFor="let i of getNumbersArray(size)">
+      <button class="paginationBtn" (click)="pagination(i)">{{ i }}</button>
+    </div>
+
+</div>
+
+</div>

@@ -1,0 +1,23 @@
+<!-- <p>Helol world</p> -->
+<!-- <app-demo></app-demo> -->
+<!-- <input type="text" appNumbersOnly/>
+<input type="text" appNumbersOnly="4"/> -->
+<!-- <input type="text" [appNumbersOnly]="count"/> -->
+<!-- <app-checkout></app-checkout> -->
+
+<ul style="display: flex; gap: 2%; margin: 0px; padding: 13px; background-color: #790101">
+    <li style="list-style-type: none;"><a class="nav_menu"  routerLink="/">Home</a></li>
+    <li style="list-style-type: none;"><a class="nav_menu"  routerLink="/products">Products</a></li>
+    <li style="list-style-type: none;"><a class="nav_menu" routerLink="/checkout">Checkout</a></li>
+    <li style="list-style-type: none;"><a class="nav_menu"  routerLink="/github">Github Search</a></li>
+    <li style="list-style-type: none;"><a class="nav_menu" routerLink="/orders">Cart</a></li>
+    <app-currency style="margin-left: auto; margin-top: 3px;" ></app-currency>
+    <app-login-buttons ></app-login-buttons>
+</ul>
+<div>
+   
+    <app-loader></app-loader>
+    <router-outlet></router-outlet>
+</div>
+<!-- <app-product-list [currency]="Appcurrency" ></app-product-list> -->
+<!-- <app-github-search></app-github-search> -->

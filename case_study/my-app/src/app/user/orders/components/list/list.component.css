@@ -1,0 +1,22 @@
+.list_body{
+    display: flex;
+    width: 50%;
+    margin-inline: auto;
+    margin-block: 20px;
+    flex-wrap: wrap;
+}
+
+.page_comtainer{
+    background-color:#d7dcdf;
+}
+
+.item_container{
+margin-block: 15px;
+   padding-inline: 20px;
+   padding-block: 10px;
+   background-color: rgb(187, 186, 186);
+}
+
+.cart_details{
+    width:100%
+}

@@ -1,0 +1,10 @@
+.nav_menu{
+    text-decoration: none; 
+    font-size: large; 
+    font-weight: bold; 
+    color: rgb(255, 255, 255);
+}
+
+.nav_menu:hover{
+   color:rgb(199, 158, 9)
+}
